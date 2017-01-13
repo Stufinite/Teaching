@@ -17,11 +17,12 @@
   * 基礎教學1：
     * [投影片](http://slides.com/davidtnfsh/deck-3)
     * [影片]()
-  * 基礎教學2：
-    * []
   * 爬蟲教學：
     * [投影片](http://slides.com/davidtnfsh/deck)
     * [影片]()
+  * Django：
+    * [投影片入門](http://slides.com/campass/deck#/)
+    * [投影片進階](django/django-2.md)
 
 ## Html
 
