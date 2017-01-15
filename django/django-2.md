@@ -86,3 +86,67 @@ python manage.py createsuperuser
 ```
 
 ### That's it, log into 127.0.0.1:8000/admin for a look.
+
+## show database result in template
+
+### update firstapp/templates/firstapp/index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  {% for i in allResult %}
+    <h1>{{i.StdID}} {{i.Score}}</h1>
+  {% endfor %}
+
+  <h1>Welcome~ {{name}}</h1>
+  {% for i in times %}
+    <h1>{{g}}</h1>
+    <button>{{buttonName}}</button>
+  {% endfor %}
+
+  <form class="ui form" action="" method="post">
+          {% csrf_token %}
+          <div class="control-group">
+            <input type="" name="studentID" placeholder="請輸入學號">
+            <label class="login-field-icon fui-user" for="login-name"></label>
+          </div>
+
+      <div class="control-group">
+        <input type="" name="score" placeholder="請輸入your score">
+        <label class="login-field-icon fui-user" for="login-name"></label>
+      </div>
+            <button class="btn btn-primary btn-large btn-block" type="submit" id="submit">繳交</button>
+  </form>
+</body>
+</html>
+```
+
+### update firstapp/views.py
+
+```
+# Create your views here.
+def group(request):
+  g = '中興資工 107與他的快樂伙伴'
+  times = range(10)
+  name = request.GET['name']
+  buttonName = 'i am button'
+  # 如果是用POST的方式進來這個function
+  if request.method == 'POST' and request.POST:
+      # 如果是POST，就再產生一個變數接request.POST的東西，並將之與form.py裡面的格式結合
+      data = request.POST 
+      data=data.dict()
+
+      print(data)
+      print(data['studentID'])
+      print(data['score'])
+
+      Result.objects.create(StdID=data['studentID'], Score=data['score'])
+      allResult = Result.objects.all()
+
+  return render(request, 'firstapp/index.html', locals())
+```
