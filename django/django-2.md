@@ -6,6 +6,8 @@
 
 ## models
 
+### put these into firstapp/models.py
+
 ```
 from django.db import models
 
@@ -18,7 +20,17 @@ class Result(models.Model):
 
 ```
 
-## post value and save with DB
+### After this, update your DATABASE schema 
+
+```
+python manage.py makemigrations
+python manage.py migrate
+
+```
+
+## Template
+
+### insert these line into the body of firstapp/templates/firstapp/index.html
 
 ```
   <form class="ui form" action="" method="post">
@@ -36,7 +48,13 @@ class Result(models.Model):
   </form>
 ```
 
+## Views.py
+
+### insert these line into `group` function of firstapp/views.py
+
 ```
+from firstapp.models import Result
+
 # 如果是用POST的方式進來這個function
 if request.method == 'POST' and request.POST:
     # 如果是POST，就再產生一個變數接request.POST的東西，並將之與form.py裡面的格式結合
@@ -50,4 +68,21 @@ if request.method == 'POST' and request.POST:
     Result.objects.create(StdID=data['studentID'], Score=data['score'])
 ```
 
-## Build an API
+## See your Database with admin
+
+### add these line into firstapp/admin.py
+
+```
+from firstapp.models import Result
+# Register your models here.
+
+admin.site.register(Result)
+```
+
+### create superuser to login into 127.0.0.1:8000/admin
+
+```
+python manage.py createsuperuser
+```
+
+### That's it, log into 127.0.0.1:8000/admin for a look.
