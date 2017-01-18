@@ -5,13 +5,9 @@
 * Build an API
 
 ## models
-
-### 把這段貼進 `firstapp/models.py`
-
-這就是設定資料庫的 `Schema`
-
-設定他有那些欄位等等
-
+把這段貼進 `firstapp/models.py`  
+這就是設定資料庫的 `Schema`  
+設定他有那些欄位等等  
 `__str__` 是這個資料庫物件的字串表示型態
 
 ```
@@ -25,11 +21,10 @@ class Result(models.Model):
         return self.StdID
 ```
 
-### After this, update your DATABASE schema 
-### 更新到新的 `database schema`
+## 更新到新的 `database schema`
 
-`makemigrations`:當你的models.py有更新的時候，需要執行一次，django會自動產生出一個migrations檔
-
+`makemigrations`:當你的models.py有更新的時候  
+需要執行一次，django會自動產生出一個migrations檔  
 其實就是一次記錄存檔，記錄你在這個時間點對資料庫的設定是什麼  
 你可以向git一樣任意切換不同時間點的設定
 
@@ -44,10 +39,11 @@ python manage.py migrate
 
 ## Template
 
-### insert these line into the body of `firstapp/templates/firstapp/index.html`
-### 把這段html程式碼貼近 `firstapp/templates/firstapp/index.html` 的 `body` 裡面，貼哪裡都沒差
+把這段html程式碼貼近 `firstapp/templates/firstapp/index.html` 的 `body` 裡面，貼哪裡都沒差
 
-<body>
+
+`<body>`
+
 ```
   <form class="ui form" action="" method="post">
           {% csrf_token %}
@@ -63,16 +59,14 @@ python manage.py migrate
             <button class="btn btn-primary btn-large btn-block" type="submit" id="submit">繳交</button>
   </form>
 ```  
-</body>
+
+`</body>`
 
 ## Views.py
 
-### insert these line into `group` function of `firstapp/views.py`
-### 把下面這一段貼進去 `group` 的 `views.py`
+把下面這一段貼進去 `group` 的 `views.py`
 
-def group(request):
-
-  貼這些進去views.py
+`def group(request):`
 
   ```
   from firstapp.models import Result
@@ -80,7 +74,7 @@ def group(request):
   # 如果是用POST的方式進來這個function
   if request.method == 'POST' and request.POST:
       # 如果是POST，就再產生一個變數接request.POST的東西，並將之與form.py裡面的格式結合
-      data = request.POST 
+      data = request.POST
       data=data.dict()
 
       print(data)
@@ -90,11 +84,11 @@ def group(request):
       Result.objects.create(StdID=data['studentID'], Score=data['score'])
   ```
 
-  return render()
+`  return render()`
 
 ## 進到後台看看 database 實際储存的結果吧
 
-### add these line into firstapp/admin.py
+把這幾行加到 `firstapp/admin.py`
 
 
 ```
@@ -104,21 +98,19 @@ from firstapp.models import Result
 admin.site.register(Result)
 ```
 
-### create superuser to login into 127.0.0.1:8000/admin
 ### 建立 `django` 的 `superuser` 然後你就可以進到自己網站的後台囉
+
+這樣就可以登入 [127.0.0.1:8000/admin](http://127.0.0.1:8000/admin) 看看資料庫的長相了.
 
 ```
 python manage.py createsuperuser
 ```
 
-### That's it, log into [127.0.0.1:8000/admin](http://127.0.0.1:8000/admin) for a look.
+### 在 `template` 直接顯示 `database` 撈出來的資料~
 
-## show database result in template
-## 在 `template` 直接顯示 `database` 撈出來的資料~
+整段都貼進去 `firstapp/templates/firstapp/index.html`
 
-### update `firstapp/templates/firstapp/index.html`
 
-### 整段都貼進去吧
 
 ```
 <!DOCTYPE html>
@@ -157,7 +149,7 @@ python manage.py createsuperuser
 
 ### update firstapp/views.py
 
-### 整段都貼進去吧
+整段都貼進去吧
 
 ```
 # Create your views here.
@@ -169,7 +161,7 @@ def group(request):
   # 如果是用POST的方式進來這個function
   if request.method == 'POST' and request.POST:
       # 如果是POST，就再產生一個變數接request.POST的東西，並將之與form.py裡面的格式結合
-      data = request.POST 
+      data = request.POST
       data=data.dict()
 
       print(data)
