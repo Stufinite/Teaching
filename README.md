@@ -12,8 +12,17 @@
 使用時必須按照著作人指定的方式表彰其姓名。
 ```
 
-## Python
-
+## 後端
+<img src='http://g.gravizo.com/g?
+ digraph G {
+   BackEnd -> Python;
+   Python -> Crawler -> Scrapy -> ScrapyCloud;
+   Python -> Django;
+   Python -> Jieba -> KCM -> KEM -> KCEM;
+   App -> android;
+   App -> Swift;
+ }
+'/>
   * 基礎教學1：
     * [投影片](http://slides.com/davidtnfsh/deck-3)
     * [影片]()
@@ -24,22 +33,46 @@
     * [投影片入門](http://slides.com/campass/deck#/)
     * [投影片進階](django/django-2.md)
 
-## Html
-
-## CSS
-
-## JavaScript
-
+## 前端
+<img src='http://g.gravizo.com/g?
+ digraph G {
+   FrontEnd -> JavaScript;
+   FrontEnd -> CSS;
+   FrontEnd -> HTML;
+   FrontEnd -> Drawing;
+   JavaScript -> jQuery;
+   JavaScript -> nodejs;
+   JavaScript -> react;
+ }
+'/>
   * JQuery
   * ECMA script
 
-## Linux
-
-## Android
-
-## Ios
-
-## Git、Travic CI等等開發工具
-
+## Android Ios
+<img src='http://g.gravizo.com/g?
+ digraph G {
+   App -> android;
+   App -> Swift;
+ }
+'/>
+## 資料庫
+<img src='http://g.gravizo.com/g?
+ digraph G {
+   DataBase -> Mysql;
+   DataBase -> Sqlite;
+   DataBase -> MongoDB;
+ }
+'/>
+## Linux + Docker + Git、Travic CI等等開發工具
+<img src='http://g.gravizo.com/g?
+ digraph G {
+   Tool -> Linux;
+   Tool -> Git;
+   Tool -> TravisCI;
+   Tool -> Markdown;
+   Tool -> Nginx;
+   Tool -> Docker;
+ }
+'/>
   * Git + Travis CI基礎入門：
     * [投影片](http://slides.com/davidtnfsh/deck-2)
