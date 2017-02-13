@@ -13,17 +13,18 @@
 ```
 
 ## 後端
-<img src='http://g.gravizo.com/g?
+
+![](http://g.gravizo.com/g?
  digraph G {
-   BackEnd -> Python;
-   Python -> Crawler -> Scrapy -> ScrapyCloud;
+   BackEnd -> Python;
+   Python -> Crawler -> Scrapy -> ScrapyCloud;
    Python -> Django;
    Python -> Jieba -> KCM -> KEM -> KCEM;
    App -> android;
    App -> Swift;
- }
-'/>
-  * 基礎教學1：
+ }) 
+
+  * 基礎教學1：
     * [投影片](http://slides.com/davidtnfsh/deck-3)
     * [影片]()
   * 爬蟲教學：
@@ -34,7 +35,8 @@
     * [投影片進階](django/django-2.md)
 
 ## 前端
-<img src='http://g.gravizo.com/g?
+
+![前端天賦樹](http://g.gravizo.com/g?
  digraph G {
    FrontEnd -> JavaScript;
    FrontEnd -> CSS;
@@ -43,28 +45,31 @@
    JavaScript -> jQuery;
    JavaScript -> nodejs;
    JavaScript -> react;
- }
-'/>
-  * JQuery
+ })
+ 
+  * JQuery
   * ECMA script
 
 ## Android Ios
-<img src='http://g.gravizo.com/g?
+
+![app天賦樹](http://g.gravizo.com/g?
  digraph G {
    App -> android;
    App -> Swift;
- }
-'/>
+ })
+
 ## 資料庫
-<img src='http://g.gravizo.com/g?
+
+![a](http://g.gravizo.com/g?
  digraph G {
    DataBase -> Mysql;
    DataBase -> Sqlite;
    DataBase -> MongoDB;
- }
-'/>
+ })
+
 ## Linux + Docker + Git、Travic CI等等開發工具
-<img src='http://g.gravizo.com/g?
+
+![a](http://g.gravizo.com/g?
  digraph G {
    Tool -> Linux;
    Tool -> Git;
@@ -72,7 +77,7 @@
    Tool -> Markdown;
    Tool -> Nginx;
    Tool -> Docker;
- }
-'/>
+ })
+
   * Git + Travis CI基礎入門：
     * [投影片](http://slides.com/davidtnfsh/deck-2)
