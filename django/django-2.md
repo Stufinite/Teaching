@@ -1,10 +1,11 @@
 # Django 進階
 
-* models
-* post value and save with DB
-* Build an API
+* models 資料庫介紹
+* 透過post存到資料庫
+* 申請superuser，並且查看後台
+* 存取資料庫資料並呈現到template
 
-## models
+## 1. models 資料庫介紹
 把這段貼進 `firstapp/models.py`  
 這就是設定資料庫的 `Schema`  
 設定他有那些欄位等等  
@@ -21,7 +22,7 @@ class Result(models.Model):
         return self.StdID
 ```
 
-## 更新到新的 `database schema`
+### 更新到新的 `database schema`
 
 `makemigrations`:當你的models.py有更新的時候  
 需要執行一次，django會自動產生出一個migrations檔  
@@ -36,6 +37,8 @@ python manage.py makemigrations
 python manage.py migrate
 
 ```
+
+## 2. 透過post存到資料庫
 
 ## Template
 
@@ -98,15 +101,15 @@ from firstapp.models import Result
 admin.site.register(Result)
 ```
 
-### 建立 `django` 的 `superuser` 然後你就可以進到自己網站的後台囉
+## 3. 申請superuser，並且查看後台
 
-這樣就可以登入 [127.0.0.1:8000/admin](http://127.0.0.1:8000/admin) 看看資料庫的長相了.
 
 ```
 python manage.py createsuperuser
 ```
+這樣就可以登入 [127.0.0.1:8000/admin](http://127.0.0.1:8000/admin) 看看資料庫的長相了.
 
-### 在 `template` 直接顯示 `database` 撈出來的資料~
+### 4. 存取資料庫資料並呈現到template
 
 整段都貼進去 `firstapp/templates/firstapp/index.html`
 
