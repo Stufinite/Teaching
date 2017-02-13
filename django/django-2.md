@@ -152,6 +152,7 @@ python manage.py createsuperuser
 整段都貼進去吧
 
 ```
+from firstapp.models import Result
 from django.shortcuts import render
 # Create your views here.
 def group(request):
