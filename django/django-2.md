@@ -152,6 +152,7 @@ python manage.py createsuperuser
 整段都貼進去吧
 
 ```
+from django.shortcuts import render
 # Create your views here.
 def group(request):
   g = '中興資工 107與他的快樂伙伴'
