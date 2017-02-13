@@ -14,7 +14,7 @@
 
 ## 後端
 
-![](http://g.gravizo.com/g?
+![dd](http://g.gravizo.com/g?
  digraph G {
    BackEnd -> Python;
    Python -> Crawler -> Scrapy -> ScrapyCloud;
@@ -23,6 +23,7 @@
    App -> android;
    App -> Swift;
  }) 
+
 
   * 基礎教學1：
     * [投影片](http://slides.com/davidtnfsh/deck-3)
@@ -47,8 +48,8 @@
    JavaScript -> react;
  })
  
-  * JQuery
-  * ECMA script
+* JQuery
+* ECMA script
 
 ## Android Ios
 
@@ -79,5 +80,5 @@
    Tool -> Docker;
  })
 
-  * Git + Travis CI基礎入門：
-    * [投影片](http://slides.com/davidtnfsh/deck-2)
+* Git + Travis CI基礎入門：
+  * [投影片](http://slides.com/davidtnfsh/deck-2)
