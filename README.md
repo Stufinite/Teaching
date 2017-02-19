@@ -45,7 +45,8 @@
    JavaScript -> react;
  })
  
-* JQuery
+* JQuery：
+  * [投影片入門](JQuery/JQuery初階.md)
 * ECMA script
 
 ## Android Ios
