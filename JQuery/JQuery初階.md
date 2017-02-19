@@ -8,7 +8,8 @@
 
 `$()`放html標記，`function(){ }`接的是當click觸發時要做的事。
 
-`<html>
+```
+<html>
 <head>
 <script type="text/javascript" src="/jquery/jquery.js"></script>
 <script type="text/javascript">
@@ -22,7 +23,8 @@ $(document).ready(function(){
 <body>
 <button>你好帥</button>
 </body>
-</html>`
+</html>
+```
 把上面貼進html點按鈕看看結果
 
 ## 2. text
@@ -31,7 +33,8 @@ $(document).ready(function(){
 
 `$()`放html標記，`()`接的是要取代的文字。
 
-`<html>
+```
+<html>
 <head>
 <script type="text/javascript" src="/jquery/jquery.js"></script>
 <script type="text/javascript">
@@ -47,7 +50,8 @@ $(document).ready(function(){
 <p>你是帥哥嗎??</p>
 <button>確認結果</button>
 </body>
-</html>`
+</html>
+```
 把上面貼進html點按鈕看看結果
 
 ## 3. append
@@ -57,7 +61,8 @@ $(document).ready(function(){
 `$()`放html標記，`()`接的是要新增的文字。
 效果和text()差不多，不同在取代和續接
 
-`<html>
+```
+<html>
 <head>
 <script type="text/javascript" src="/jquery/jquery.js"></script>
 <script type="text/javascript">
@@ -73,5 +78,6 @@ $(document).ready(function(){
 
 <button>看解答</button>
 </body>
-</html>`
+</html>
+```
 把上面貼進html點按鈕看看結果
