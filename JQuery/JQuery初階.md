@@ -82,7 +82,7 @@ $(document).ready(function(){
 ```
 把上面貼進html點按鈕看看結果
 
-## 3. each()
+## 4. each()
 
 `$().each(function(){ });`
 
@@ -115,7 +115,7 @@ $(document).ready(function(){
 ```
 把上面貼進html點按鈕看看結果
 
-## 3. getJSON()
+## 5. getJSON()
 
 獲得 JSON 數據，並輸出结果
 
