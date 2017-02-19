@@ -2,7 +2,7 @@
 
 * 基本JQuery語法
 
-## 1. click
+## 1. click()
 
 `$().click(function(){ });`
 
@@ -27,7 +27,7 @@ $(document).ready(function(){
 ```
 把上面貼進html點按鈕看看結果
 
-## 2. text
+## 2. text()
 
 `$().text()`
 
@@ -54,7 +54,7 @@ $(document).ready(function(){
 ```
 把上面貼進html點按鈕看看結果
 
-## 3. append
+## 3. append()
 
 `$().append()`
 
@@ -81,3 +81,45 @@ $(document).ready(function(){
 </html>
 ```
 把上面貼進html點按鈕看看結果
+
+## 3. each()
+
+`$().each(function(){ });`
+
+`each()`方法類似for的功能，配合陣列使用就可以取到每一個的值。
+這裡用html標記來取代陣列作範例:
+
+```
+<html>
+<head>
+<script type="text/javascript" src="/jquery/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("button").click(function(){
+    $("li").each(function(){
+      alert($(this).text() +":0分")
+    });
+  });
+});
+</script>
+</head>
+<body>
+<button>看看女生給你的分數</button>
+<ul>
+<li>長相</li>
+<li>身材</li>
+<li>財富</li>
+</ul>
+</body>
+</html>
+```
+把上面貼進html點按鈕看看結果
+
+## 3. getJSON()
+
+獲得 JSON 數據，並輸出结果
+
+`$.getJSON(" ",function(){ });`
+
+`" "`裡填json路徑或網址，執行的功能放在`{ }`
+
