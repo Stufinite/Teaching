@@ -20,17 +20,17 @@
    Python -> Crawler -> Scrapy -> ScrapyCloud;
    Python -> Django;
    Python -> Jieba -> KCM -> KEM -> KCEM;
- }) 
+ })
 
 * 基礎教學1：
   * [投影片](http://slides.com/davidtnfsh/deck-3)
   * [影片]()
 * 爬蟲教學：
   * 基礎：
-   * [投影片](http://slides.com/davidtnfsh/deck)
-   * [影片]()
+    * [投影片](http://slides.com/davidtnfsh/deck)
+    * [影片]()
   * Scrapy：
-   *  ff `勝銜放這邊`
+    * `勝銜放這邊`
 * Django：
   * [投影片入門](http://slides.com/campass/deck#/)
   * [投影片進階](django/django-2.md)
@@ -47,7 +47,7 @@
    JavaScript -> nodejs;
    JavaScript -> react;
  })
- 
+
 * JQuery：
   * [投影片入門](JQuery/JQuery初階.md)
 * ECMA script
