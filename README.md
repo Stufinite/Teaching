@@ -30,7 +30,7 @@
    * [投影片](http://slides.com/davidtnfsh/deck)
    * [影片]()
   * Scrapy：
-   * `勝銜放這邊`
+   *  ff `勝銜放這邊`
 * Django：
   * [投影片入門](http://slides.com/campass/deck#/)
   * [投影片進階](django/django-2.md)
