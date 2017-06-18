@@ -14,7 +14,7 @@
 
 ## 後端
 
-![dd](http://g.gravizo.com/g?digraph G {BackEnd->Python;Python->Crawler->Scrapy->ScrapyCloud;Python->Django;Python->Jieba->KCM->KEM->KCEM;})
+![dd](backend.png)
 
 * 基礎教學1：
   * [投影片](http://slides.com/davidtnfsh/deck-3)
@@ -31,7 +31,7 @@
 
 ## 前端
 
-![前端天賦樹](http://g.gravizo.com/g?digraph G {FrontEnd -> JavaScript;FrontEnd -> CSS;   FrontEnd -> HTML;   FrontEnd -> Drawing;   JavaScript -> jQuery;   JavaScript -> nodejs;   JavaScript -> react; })
+![前端天賦樹](front.png)
 
 * JQuery：
   * [投影片入門](JQuery/JQuery初階.md)
@@ -39,15 +39,15 @@
 
 ## Android Ios
 
-![app天賦樹](http://g.gravizo.com/g? digraph G {   App -> android;   App -> Swift; })
+![app天賦樹](app.png)
 
 ## 資料庫
 
-![a](http://g.gravizo.com/g? digraph G {   DataBase -> Mysql;   DataBase -> Sqlite;   DataBase -> MongoDB; })
+![a](database.png)
 
 ## Linux + Docker + Git、Travic CI等等開發工具
 
-![a](http://g.gravizo.com/g? digraph G {   Tool -> Linux;   Tool -> Git;   Tool -> TravisCI;   Tool -> Markdown;   Tool -> Nginx;   Tool -> Docker; })
+![a](linux.png)
 
 * Git + Travis CI基礎入門：
   * [投影片](http://slides.com/davidtnfsh/deck-2)
