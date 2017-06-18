@@ -14,7 +14,7 @@
 
 ## 後端
 
-![dd](http://g.gravizo.com/g?digraph G {BackEnd -> Python;Python -> Crawler -> Scrapy -> ScrapyCloud;Python -> Django;Python -> Jieba -> KCM -> KEM -> KCEM;})
+![dd](http://g.gravizo.com/g?digraph G {BackEnd->Python;Python->Crawler->Scrapy->ScrapyCloud;Python->Django;Python->Jieba->KCM->KEM->KCEM;})
 
 * 基礎教學1：
   * [投影片](http://slides.com/davidtnfsh/deck-3)
