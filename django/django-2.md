@@ -5,6 +5,44 @@
 * 申請superuser，並且查看後台
 * 存取資料庫資料並呈現到template
 
+## 0. 先把建立app
+`django-admin startapp firstapp` (window 試試django-admin.py startapp firstapp)
+
+first/urls.py:
+```
+from django.conf.urls import url, include
+from django.contrib import admin
+
+urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+    url(r'^firstapp/',include('firstapp.urls') ),
+]
+```
+
+把之前first的urls.py移動到
+first/firstapp/urls.py:
+```
+from django.conf.urls import url, include
+from firstapp.views import group
+
+urlpatterns = [
+    url(r'^group$', group),
+]
+```
+把之前first的urls.py移動到
+first/firstapp/views.py:
+```
+from django.shortcuts import render
+
+# Create your views here.
+def group(request):
+	g = '中興資工 107與他的快樂伙伴'
+	times = range(5)
+	name = request.GET['name']
+	print(locals())
+	return render(request, 'index.html', locals())
+```
+
 ## 1. models 資料庫介紹
 把這段貼進 `firstapp/models.py`  
 這就是設定資料庫的 `Schema`  
