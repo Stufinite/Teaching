@@ -121,10 +121,12 @@ python manage.py migrate
 
 把下面這一段貼進去 `group` 的 `views.py`
 
-`def group(request):`
+`def group(request):`  
+
 原本的東西可以留著  
 再下面新增就好  
 注意縮排
+
   ```
   from firstapp.models import Result
 
@@ -140,7 +142,9 @@ python manage.py migrate
 
       Result.objects.create(StdID=data['studentID'], Score=data['score'])
   ```
-  貼到這邊就好  
+ 
+貼到這邊就好  
+
 
 `  return render()`
 
