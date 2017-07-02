@@ -8,7 +8,7 @@
 ## 0. 先把建立app
 `django-admin startapp firstapp` (window 試試django-admin.py startapp firstapp)
 
-first/urls.py:
+first/first/urls.py:
 ```
 from django.conf.urls import url, include
 from django.contrib import admin
