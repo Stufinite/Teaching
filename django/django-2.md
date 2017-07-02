@@ -121,11 +121,9 @@ python manage.py migrate
 
 把下面這一段貼進去 `group` 的 `views.py`
 
-`def group(request):`  
-
-原本的東西可以留著  
-再下面新增就好  
-注意縮排
+def group(request):  
+中間有很多東西  
+可以留著
 
   ```
   from firstapp.models import Result
@@ -142,11 +140,10 @@ python manage.py migrate
 
       Result.objects.create(StdID=data['studentID'], Score=data['score'])
   ```
- 
-貼到這邊就好  
+  
 
 
-`  return render()`
+return render(request, 'index.html', locals())
 
 ## 進到後台看看 database 實際储存的結果吧
 
