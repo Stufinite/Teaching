@@ -28,6 +28,7 @@
 * Django：
   * [投影片入門](http://slides.com/campass/deck#/)
   * [投影片進階](django/django-2.md)
+  * [django完整學習](http://dokelung-blog.logdown.com/)
 
 ## 前端
 
