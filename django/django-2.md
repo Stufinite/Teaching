@@ -19,8 +19,7 @@ urlpatterns = [
 ]
 ```
 
-把之前first的urls.py移動到
-first/firstapp/urls.py:
+建立first/firstapp/urls.py:
 ```
 from django.conf.urls import url, include
 from firstapp.views import group
@@ -29,7 +28,7 @@ urlpatterns = [
     url(r'^group$', group),
 ]
 ```
-把之前first的urls.py移動到
+把之前first的virws.py移動到  
 first/firstapp/views.py:
 ```
 from django.shortcuts import render
@@ -41,6 +40,21 @@ def group(request):
 	name = request.GET['name']
 	print(locals())
 	return render(request, 'index.html', locals())
+```
+
+在settings.py新增firstapp在陣列裏面：  
+```
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    #########新增這個#########
+    'firstapp'
+    #############
+]
 ```
 
 ## 1. models 資料庫介紹
