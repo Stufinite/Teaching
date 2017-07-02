@@ -94,7 +94,7 @@ python manage.py migrate
 
 ## Template
 
-把這段html程式碼貼近 `firstapp/templates/firstapp/index.html` 的 `body` 裡面，貼哪裡都沒差
+把這段html程式碼貼近 `templates/index.html` 的 `body` 裡面，貼哪裡都沒差
 
 
 `<body>`
@@ -163,7 +163,7 @@ python manage.py createsuperuser
 
 ### 4. 存取資料庫資料並呈現到template
 
-整段都貼進去 `firstapp/templates/firstapp/index.html`
+整段都貼進去 `templates/index.html`
 
 
 
@@ -228,5 +228,5 @@ def group(request):
       Result.objects.create(StdID=data['studentID'], Score=data['score'])
       allResult = Result.objects.all()
 
-  return render(request, 'firstapp/index.html', locals())
+  return render(request, 'index.html', locals())
 ```
