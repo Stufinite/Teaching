@@ -125,7 +125,7 @@ def group(request):  
 中間有很多東西  
 可以留著
 
-  ```
+```
   from firstapp.models import Result
 
   # 如果是用POST的方式進來這個function
@@ -139,7 +139,7 @@ def group(request):  
       print(data['score'])
 
       Result.objects.create(StdID=data['studentID'], Score=data['score'])
-  ```
+```
   
 
 
