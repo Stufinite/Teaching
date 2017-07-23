@@ -3,6 +3,8 @@
 
 ### 環境：
 * django：
+  * start a new django project:`python manage.py startproject yourname`
+  * 參考第1篇的django教學，可以讓你讀取到html即可 [第1篇django tutorial](http://slides.com/campass/deck#/)
   * 安裝react套件：`pip install django-webpack-loader`
   * settings.py修改這些部份，已經有的部份就是修改，沒有的部份就新增：
     ```
