@@ -63,10 +63,10 @@
       ```
 3. 寫spiders的邏輯：
     1. 流程：`start_urls` -> `parse` -> `callback function`
-    2. callback function的作用：以IThome為例  
-      首頁是新聞的清單，點進去才會有新聞的詳細資訊  
-      parse只是讓你拿到首頁的新聞清單  
-      需要自己寫一個callback function才能從首頁鑽進去每篇新聞。
+        * callback function的作用：以IThome為例  
+          首頁是新聞的清單，點進去才會有新聞的詳細資訊  
+          parse只是讓你拿到首頁的新聞清單  
+          需要自己寫一個callback function才能從首頁鑽進去每篇新聞。
     3. 先定義要爬的網址 start_urls：在這裡就是ithome的網址 [http://www.ithome.com.tw/security](http://www.ithome.com.tw/security)
         * spcrapyDemo/spiders/ithome.py：
         ```
