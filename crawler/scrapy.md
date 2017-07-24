@@ -62,49 +62,49 @@
         link = scrapy.Field()
     ```
 3. 寫spiders的邏輯：
-  1. 流程：`start_urls` -> `parse` -> `callback function`
-  2. callback function的作用：以IThome為例  
-    首頁是新聞的清單，點進去才會有新聞的詳細資訊  
-    parse只是讓你拿到首頁的新聞清單  
-    需要自己寫一個callback function才能從首頁鑽進去每篇新聞。
-  3. 先定義要爬的網址 start_urls：在這裡就是ithome的網址 [http://www.ithome.com.tw/security](http://www.ithome.com.tw/security)
+    1. 流程：`start_urls` -> `parse` -> `callback function`
+    2. callback function的作用：以IThome為例  
+      首頁是新聞的清單，點進去才會有新聞的詳細資訊  
+      parse只是讓你拿到首頁的新聞清單  
+      需要自己寫一個callback function才能從首頁鑽進去每篇新聞。
+    3. 先定義要爬的網址 start_urls：在這裡就是ithome的網址 [http://www.ithome.com.tw/security](http://www.ithome.com.tw/security)
+        * spcrapyDemo/spiders/ithome.py：
+        ```
+        start_urls = ['http://www.ithome.com.tw/security']
+        ```
+    4. scrapy會自動requests.get() start_urls裏面所有的網址，然後把response傳回`parse`這個function  
+    `response.body`可以拿到網址的html  
+    `yield` 是python的語法，產生generator  
+    目的是較節省記憶體和時間，每個yield都會鑽進每篇新聞裏面  
+    並且透過自己定義的`parse_detail`去爬該篇詳細的新聞資訊  
+    整段parse的邏輯如下：`res.select('.item')`可以選取到首頁所有的新聞  
+    再使用`scrapy.Request`一一對每一篇新聞做request  
+    並且使用`parse_detail`這個函數去解析每篇新聞  
+    回傳一個item
+        * spcrapyDemo/spiders/ithome.py：
+        ```
+        def parse(self, response):
+    		res = BeautifulSoup(response.body)
+    		for i in res.select('.item'):
+    			yield scrapy.Request("http://www.ithome.com.tw" + i.select('a')[0]['href'], self.parse_detail)
+        ```
+    5. parse_detail是每篇新聞，每篇新聞要回傳一個json的object，在scrapy裏面，是用orm的概念，存成物件，再將他轉換成json的型態。所以自定義的callback function，需要回傳item
       * spcrapyDemo/spiders/ithome.py：
       ```
-      start_urls = ['http://www.ithome.com.tw/security']
-      ```
-  4. scrapy會自動requests.get() start_urls裏面所有的網址，然後把response傳回`parse`這個function  
-  `response.body`可以拿到網址的html  
-  `yield` 是python的語法，產生generator  
-  目的是較節省記憶體和時間，每個yield都會鑽進每篇新聞裏面  
-  並且透過自己定義的`parse_detail`去爬該篇詳細的新聞資訊  
-  整段parse的邏輯如下：`res.select('.item')`可以選取到首頁所有的新聞  
-  再使用`scrapy.Request`一一對每一篇新聞做request  
-  並且使用`parse_detail`這個函數去解析每篇新聞  
-  回傳一個item
-      * spcrapyDemo/spiders/ithome.py：
-      ```
-      def parse(self, response):
+      def parse_detail(self, response):
   		res = BeautifulSoup(response.body)
-  		for i in res.select('.item'):
-  			yield scrapy.Request("http://www.ithome.com.tw" + i.select('a')[0]['href'], self.parse_detail)
+  		tripItem = TripadvisorItem()
+  		tripItem['title'] = res.select('.page-header')[0].text.replace('\n', '')
+  		tripItem['location'] = ''
+  		tripItem['description'] = functools.reduce(lambda x,y:x+'\n'+y, map(lambda review:review.text, res.select('.even p'))).replace('\n', '', 1)
+  		tripItem['category'] = "event"
+  		tripItem['type'] = "it"
+  		tripItem['channel'] = ""
+  		tripItem['time'] = res.select('#block-views-view-news-custom-submitted .created')[0].text
+  		tripItem['price'] = 0
+  		tripItem['image'] = res.select('.img-wrapper img')[0]['src']
+  		tripItem['link'] = response.url
+  		return tripItem
       ```
-  5. parse_detail是每篇新聞，每篇新聞要回傳一個json的object，在scrapy裏面，是用orm的概念，存成物件，再將他轉換成json的型態。所以自定義的callback function，需要回傳item
-    * spcrapyDemo/spiders/ithome.py：
-    ```
-    def parse_detail(self, response):
-		res = BeautifulSoup(response.body)
-		tripItem = TripadvisorItem()
-		tripItem['title'] = res.select('.page-header')[0].text.replace('\n', '')
-		tripItem['location'] = ''
-		tripItem['description'] = functools.reduce(lambda x,y:x+'\n'+y, map(lambda review:review.text, res.select('.even p'))).replace('\n', '', 1)
-		tripItem['category'] = "event"
-		tripItem['type'] = "it"
-		tripItem['channel'] = ""
-		tripItem['time'] = res.select('#block-views-view-news-custom-submitted .created')[0].text
-		tripItem['price'] = 0
-		tripItem['image'] = res.select('.img-wrapper img')[0]['src']
-		tripItem['link'] = response.url
-		return tripItem
-    ```
-  4. 執行：`scrapy crawl ithome -o xxx.json -t json` 這樣就產生一個叫作`xxx.json`的檔案了
-    * [範例程式碼連結](https://github.com/UDICatNCHU/User-Interest-Extraction-API/tree/master/restaurant%2Battractions)
+    4. 執行：`scrapy crawl ithome -o xxx.json -t json` 這樣就產生一個叫作`xxx.json`的檔案了
+      * [範例程式碼連結](https://github.com/UDICatNCHU/User-Interest-Extraction-API/tree/master/restaurant%2Battractions)
