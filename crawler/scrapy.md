@@ -44,23 +44,23 @@
     1. `scrapy startproject spcrapyDemo`
     2. `scrapy genspider ithome www.ithome.com.tw`
 2. 先定義好資料格式 schema
-  * spcrapyDemo/spiders/items.py的內容：
-    ```
-    # -*- coding: utf-8 -*-
-    import scrapy
-    class TripadvisorItem(scrapy.Item):
-        # define the fields for your item here like:
-        title = scrapy.Field()
-        location = scrapy.Field()
-        description = scrapy.Field()
-        category = scrapy.Field()
-        type = scrapy.Field()
-        channel = scrapy.Field()
-        time = scrapy.Field()
-        price = scrapy.Field()
-        image = scrapy.Field()
-        link = scrapy.Field()
-    ```
+    * spcrapyDemo/spiders/items.py的內容：
+      ```
+      # -*- coding: utf-8 -*-
+      import scrapy
+      class TripadvisorItem(scrapy.Item):
+          # define the fields for your item here like:
+          title = scrapy.Field()
+          location = scrapy.Field()
+          description = scrapy.Field()
+          category = scrapy.Field()
+          type = scrapy.Field()
+          channel = scrapy.Field()
+          time = scrapy.Field()
+          price = scrapy.Field()
+          image = scrapy.Field()
+          link = scrapy.Field()
+      ```
 3. 寫spiders的邏輯：
     1. 流程：`start_urls` -> `parse` -> `callback function`
     2. callback function的作用：以IThome為例  
