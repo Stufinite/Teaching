@@ -18,13 +18,12 @@
 
 * 基礎教學1：
   * [投影片](http://slides.com/davidtnfsh/deck-3)
-  * [影片]()
 * 爬蟲教學：
   * 基礎：
     * [投影片](http://slides.com/davidtnfsh/deck)
-    * [影片]()
   * Scrapy：
-    * `勝銜放這邊`
+    * [scrapy基礎](crawler/scrapy.md)
+    * [選課資料-scrapy範例](crawler/課程爬蟲.md)
 * Django：
   * [投影片入門](http://slides.com/campass/deck#/)
   * [投影片進階](django/django-2.md)
