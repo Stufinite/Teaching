@@ -89,22 +89,22 @@
     			yield scrapy.Request("http://www.ithome.com.tw" + i.select('a')[0]['href'], self.parse_detail)
         ```
     5. parse_detail是每篇新聞，每篇新聞要回傳一個json的object，在scrapy裏面，是用orm的概念，存成物件，再將他轉換成json的型態。所以自定義的callback function，需要回傳item
-      * spcrapyDemo/spiders/ithome.py：
-      ```
-      def parse_detail(self, response):
-  		res = BeautifulSoup(response.body)
-  		tripItem = TripadvisorItem()
-  		tripItem['title'] = res.select('.page-header')[0].text.replace('\n', '')
-  		tripItem['location'] = ''
-  		tripItem['description'] = functools.reduce(lambda x,y:x+'\n'+y, map(lambda review:review.text, res.select('.even p'))).replace('\n', '', 1)
-  		tripItem['category'] = "event"
-  		tripItem['type'] = "it"
-  		tripItem['channel'] = ""
-  		tripItem['time'] = res.select('#block-views-view-news-custom-submitted .created')[0].text
-  		tripItem['price'] = 0
-  		tripItem['image'] = res.select('.img-wrapper img')[0]['src']
-  		tripItem['link'] = response.url
-  		return tripItem
-      ```
+        * spcrapyDemo/spiders/ithome.py：
+        ```
+        def parse_detail(self, response):
+    		res = BeautifulSoup(response.body)
+    		tripItem = TripadvisorItem()
+    		tripItem['title'] = res.select('.page-header')[0].text.replace('\n', '')
+    		tripItem['location'] = ''
+    		tripItem['description'] = functools.reduce(lambda x,y:x+'\n'+y, map(lambda review:review.text, res.select('.even p'))).replace('\n', '', 1)
+    		tripItem['category'] = "event"
+    		tripItem['type'] = "it"
+    		tripItem['channel'] = ""
+    		tripItem['time'] = res.select('#block-views-view-news-custom-submitted .created')[0].text
+    		tripItem['price'] = 0
+    		tripItem['image'] = res.select('.img-wrapper img')[0]['src']
+    		tripItem['link'] = response.url
+    		return tripItem
+        ```
     4. 執行：`scrapy crawl ithome -o xxx.json -t json` 這樣就產生一個叫作`xxx.json`的檔案了
-      * [範例程式碼連結](https://github.com/UDICatNCHU/User-Interest-Extraction-API/tree/master/restaurant%2Battractions)
+        * [範例程式碼連結](https://github.com/UDICatNCHU/User-Interest-Extraction-API/tree/master/restaurant%2Battractions)
