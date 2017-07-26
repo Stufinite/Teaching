@@ -6,6 +6,25 @@
 
 * Linux:`pip install scrapy`
 * Windows:請參考[大數學堂教學](http://www.largitdata.com/course/67/) 安裝anaconda
+  直接整理一下怎麼安裝:
+  1. [下載anaconda](https://www.continuum.io/downloads)(如果原本有python安裝好的話，無需跟原本的python同一個版本，我是3.5不過我下載3.6應該是沒有太大衝突，但記得不要加入環境變數)
+  2. 安裝好打開conda prompt，透過以下程式碼檢測安裝好的環境，確認一下:
+```
+  $pip -V #檢測哪一個版本所使用的pip  
+  $pip list #檢測pip 已經安裝了哪些東西
+  $python -V #檢測python的版本
+```
+  3. 去[找twisted的wheel檔](http://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted)，下載後cd到下載檔案的目錄，執行以下程式碼:
+```
+  $cd Downloads #cd到下載目錄  
+  $pip install Twisted-17.5.0-cp36-cp36m-win_amd64.whl #安裝這個檔案(如果不是用conda，.whl是wheel檔，請記得先安裝pip install wheel)
+```
+  4. 直接:
+```
+  $pip install scrapy
+```
+
+
 
 ### 架構
 
