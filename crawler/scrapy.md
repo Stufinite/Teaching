@@ -5,6 +5,7 @@
 ### 安裝
 
 * Linux:`pip install scrapy`
+(若遇到Error: command 'x86_64-linux-gnu-gcc' failed with exit status 1，請先`sudo apt-get install python3-dev`)
 * Windows:請參考[大數學堂教學](http://www.largitdata.com/course/67/) 安裝anaconda
 
 直接整理一下怎麼安裝:  
