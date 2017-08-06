@@ -31,7 +31,7 @@
     * 貼在body裏面，react會把html給放進這個div裏面，注意id跟react裏面`ReactDOM.render(... document.getElementById('container'))` 的id是不是一樣：
       ```
       <div id="container"></div>
-      {% render_bundle 'main' 'js' 'INDEX' %}
+      {% render_bundle 'main' %}
       ```
     * 這邊我把 {% render_bundle 'main' %} 參照出處做修改，如果有遇到錯誤可以嘗試。
 
