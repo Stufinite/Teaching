@@ -129,3 +129,7 @@
         ```
     4. 執行：`scrapy crawl ithome -o xxx.json -t json` 這樣就產生一個叫作`xxx.json`的檔案了
         * [範例程式碼連結](https://github.com/UDICatNCHU/User-Interest-Extraction-API/tree/master/restaurant%2Battractions)
+        
+
+    5. Debug：`scrapy crawl ithome --logfile logfile.txt` 這樣就產生一個叫作`logfile.txt`的檔案了，會把原本應該輸出在cmdline的文字直接寫入file，透過print印在cmdline的文字也不會被淹沒在茫茫的log文字之中。
+       
