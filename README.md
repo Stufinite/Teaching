@@ -46,8 +46,8 @@
 
 ![a](database.png)
 
-* MongoDB
-  * [基礎教學](mongodb/mongodb.md)
+* MongoDB：
+    * [基礎教學](mongodb/mongodb.md)
 
 ## Linux + Docker + Git、Travic CI等等開發工具
 
